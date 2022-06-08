@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+
+.fiat_choose {
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+
+.title {
+    text-align: center;
+    color: navy;
+    font-size: 80px;
+    font-family: 'Open Sans';
+    margin-bottom: 10px;
+}
+
+.form_title {
+    text-align: center;
+    color: navy;
+    font-size: 30px;
+    font-family: 'Open Sans';
+    margin-bottom: 10px;
+}
+
+.container {
+    border: 3px solid navy;
+    max-width: 60%;
+    margin: 0 auto;
+    border-radius: 3%;
+}
+
+.currency_list {
+    display: flex;
+    flex-wrap: wrap;
+}
+h3 {
+  margin-top: 10px;
+}
+
+li {
+    list-style-type: none;
+}
+
+.currency {
+    width: 50%;
+}
+select {
+    text-align: center;
+    margin-top: 20px;
+    width: 98%;
+    height: 35px;
+    padding: 4px;
+    border-radius:4px;
+    box-shadow: 2px 2px 8px #999;
+    background: #eee;
+    border: none;
+    outline: none;
+    display: inline-block;
+    -webkit-appearance:none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    }
+
+option {
+    width: 98%;
+}
+
+input[type="text"] {
+  font-size: 20px;
+  font-family: 'Open Sans';
+}
+
+.currency_title {
+    text-align: center;
+    color: navy;
+    font-size: 30px;
+    font-family: 'Open Sans';
+    margin-bottom: 10px;
+}
+
+.currency_input {
+    font-size: 100px;
+    font-family: 'Open Sans';
+    height: 20%;
+    width: 98%;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid navy
+}
+
+.inputGroup {
+  background-color: #fff;
+  display: block;
+  margin: 10px 0;
+  position: relative;
+}
+.inputGroup label {
+  padding: 20px 30px;
+  width: 100%;
+  display: block;
+  text-align: left;
+  color: #3c454c;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  transition: color 200ms ease-in;
+  overflow: hidden;
+}
+.inputGroup label:before {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  content: "";
+  background-color: #5562eb;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale3d(1, 1, 1);
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  z-index: -1;
+}
+.inputGroup label:after {
+  width: 32px;
+  height: 32px;
+  content: "";
+  border: 2px solid #d1d7dc;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.414 11L4 12.414l5.414 5.414L20.828 6.414 19.414 5l-10 10z' fill='%23fff' fill-rule='nonzero'/%3E%3C/svg%3E ");
+  background-repeat: no-repeat;
+  background-position: 2px 3px;
+  border-radius: 50%;
+  z-index: 2;
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  transition: all 200ms ease-in;
+}
+.inputGroup input:checked ~ label {
+  color: #fff;
+}
+.inputGroup input:checked ~ label:before {
+  transform: translate(-50%, -50%) scale3d(56, 56, 1);
+  opacity: 1;
+}
+.inputGroup input:checked ~ label:after {
+  background-color: #54e0c7;
+  border-color: #54e0c7;
+}
+.inputGroup input {
+  width: 32px;
+  height: 32px;
+  order: 1;
+  z-index: 2;
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.form {
+  padding: 0 16px;
+  max-width: 30%;
+  margin: 50px auto;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 36px;
+}
+
+
+@media (max-width: 600px) {
+  .title {
+      font-size: 60px;
+  }
+  .currency {
+      margin-left: -30px;
+      width: 100%;
+  }
+  option {
+      width: 100%;
+  }
+  select {
+      width: 100%;
+  }
+  .container {
+      max-width: 100%;
+  }
+.form {
+  max-width: 100%;
+}
+ 
+}

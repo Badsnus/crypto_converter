@@ -1,0 +1,70 @@
+{% extends 'converter/base.html' %}
+
+{% block content %}
+<form class="form">
+  
+    <h2 class="form_title">Выбор фиатных валют</h2>
+    <div class="inputGroup">
+        {% if session_currency.usd == 1 %}
+            <input id="option1" name="option1" type="checkbox" checked="checked"/>
+        {% else %}
+             <input id="option1" name="option1" type="checkbox"/>
+        {% endif %}
+      <label for="option1">USD</label>
+    </div>
+    
+    <div class="inputGroup">
+        {% if session_currency.eur == 1 %}
+            <input id="option2" name="option2" type="checkbox" checked="checked"/>
+        {% else %}
+             <input id="option2" name="option2" type="checkbox"/>
+        {% endif %}
+      <label for="option2">EUR</label>
+    </div>
+    <div class="inputGroup">
+        {% if session_currency.rub == 1 %}
+        <input id="option3" name="option3" type="checkbox" checked="checked"/>
+        {% else %}
+             <input id="option3" name="option3" type="checkbox"/>
+        {% endif %}
+        <label for="option3">RUB</label>
+      </div>
+</form>
+<div class="container">
+    <ul class="currency_list">
+        <li class="currency">
+            <h3 class="currency_title" id="first_currency_title">{{ currencies.bitcoin }}</h3>
+            <input type="text" value="1" class="currency_input" id="first_input"><br>
+            <p class="fiat" style="margin-top: 10px;margin-bottom: 5px; color: rgb(168, 164, 164); {{ show_usd }}"
+               id="fiat_first_usd">{{ btc_to_fiat.usd }} USD/{{ currencies.bitcoin }}</p>
+            <p class="fiat" style="margin-top: 10px;margin-bottom: 5px; color: rgb(168, 164, 164);{{ show_eur }}"
+               id="fiat_first_eur">{{ btc_to_fiat.eur }} EUR/{{ currencies.bitcoin }}</p>
+            <p class="fiat" style="margin-top: 10px;margin-bottom: -10px; color: rgb(168, 164, 164);{{ show_rub }}"
+               id="fiat_first_rub">{{ btc_to_fiat.rub }} RUB/{{ currencies.bitcoin }}</p>
+            <select id="first_select">
+                {% for currency in currencies.values %}
+                <option value="{{ currency }}">{{ currency }}</option>
+                {% endfor %}
+            </select>
+        </li>
+        <li class="currency">
+            <h3 class="currency_title" id="second_currency_title">{{ currencies2.vechain }}</h3>
+            <input type="text" value="{{ vet_price }}" class="currency_input" id="second_input"><br>
+            <p class="fiat" style="margin-top: 10px;margin-bottom: 5px;color: rgb(168, 164, 164);{{ show_usd }}"
+               id="fiat_second_usd">{{ vet_to_fiat.usd }} USD/{{ currencies2.vechain }}</p>
+            <p class="fiat" style="margin-top: 10px;margin-bottom: 5px;color: rgb(168, 164, 164);{{ show_eur }}"
+               id="fiat_second_eur">{{ vet_to_fiat.eur }} EUR/{{ currencies2.vechain }}</p>
+            <p class="fiat" style="margin-top: 10px;margin-bottom: -10px;color: rgb(168, 164, 164); {{ show_rub }}"
+               id="fiat_second_rub">{{ vet_to_fiat.rub }} RUB/{{ currencies2.vechain }}</p>
+            <select id="second_select">
+                {% for currency in currencies2.values %}
+                <option value="{{ currency }}">{{ currency }}</option>
+                {% endfor %}
+            </select>
+        </li>
+    </ul>
+    <script type='text/javascript'>var currencies_price = {{ currencies_price|safe }};</script>
+    <script type='text/javascript'>var currencies = {{ currencies|safe }};</script>
+</div>
+
+{% endblock %}

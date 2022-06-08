@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BADSNUS CONVERTER</title>
+    <link rel="stylesheet" href="{% static 'converter/css/style.css' %}">
+</head>
+<body>
+    <h1 class="title">BADSNUS <br> CONVERTER</h1>
+    {% block content %}
+
+    {% endblock %}
+    <script src="{% static 'converter/js/script.js' %}"></script>
+</body>
+</html>
